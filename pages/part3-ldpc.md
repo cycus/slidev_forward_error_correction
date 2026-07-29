@@ -265,6 +265,7 @@ with LLRs → the simulator next.
 ---
 layout: default
 class: px-10
+clicks: 4
 ---
 
 # Interactive — belief propagation, step by step
@@ -273,12 +274,7 @@ class: px-10
 The centerpiece. Sum-product on the (6,3) graph with real LLRs: one flipped bit, watch the checks argue it back.
 </div>
 
-<SimStub
-  name="TannerBpSimulator · guided run"
-  task="T07"
-  note="BSC p=0.2 → channel LLRs ±1.386. Bit 1 received flipped. Step the iterations: CN→VN messages (±0.7538) flow back and correct bit 1's posterior to +0.1213 in ONE iteration; syndrome satisfied → stop."
-  height="15rem"
-/>
+<TannerBpSimulator mode="guided" />
 
 <SourceFoot :refs="[['Worked numbers: S. Johnson, \'Introducing LDPC Codes\' (ex. 2.5)', ''], ['Sum-product / tanh rule — Gallager 1962']]" />
 
@@ -360,26 +356,21 @@ class: px-10
 Same received word, three algorithms. Watch the message magnitudes — and how many iterations each needs.
 </div>
 
-<SimStub
-  name="TannerBpSimulator · algorithm toggle"
-  task="T07"
-  note="Toggle sum-product ↔ min-sum ↔ normalized min-sum on the same flipped word. The CN→VN message changes: 0.7538 (sum-product) vs 1.3863 (plain min-sum, over-confident) vs 1.0397 (normalized, ×0.75). Convergence compared side by side."
-  height="14rem"
-/>
+<TannerBpSimulator mode="explore" />
 
-<div class="grid grid-cols-3 gap-4 mt-3 text-center fec-tnum">
-<div class="fec-card"><div class="text-fec-info font-bold text-lg">0.7538</div><div class="text-xs text-fec-muted">sum-product (exact)</div></div>
-<div class="fec-card"><div class="text-fec-error font-bold text-lg">1.3863</div><div class="text-xs text-fec-muted">min-sum (over-confident)</div></div>
-<div class="fec-card"><div class="text-fec-corrected font-bold text-lg">1.0397</div><div class="text-xs text-fec-muted">normalized ×0.75</div></div>
+<div class="text-center text-sm text-fec-muted mt-2 fec-tnum">
+Toggle the algorithm, hover an edge: sum-product <b class="text-fec-info">0.7538</b> · min-sum <b class="text-fec-error">1.3863</b> (over-confident) · normalized ×0.75 <b class="text-fec-corrected">1.0397</b>.
 </div>
 
 <SourceFoot :refs="[['Message values: S. Johnson worked example; α=0.75 normalization', '']]" />
 
 <!--
-Slide 8. INTERACTIVE — TannerBpSimulator algorithm toggle (T07). The three
-message magnitudes are the teaching point: min-sum's 1.3863 is visibly larger
-than sum-product's 0.7538 (over-confidence), and ×0.75 pulls it back to 1.0397.
-The static cards below stand in / reinforce until the sim lands.
+Slide 8. INTERACTIVE — TannerBpSimulator explore mode (T07). Core teaching point,
+now live: toggle sum-product / min-sum / normalized-min-sum on the same flipped
+word and hover the CN→VN edges — min-sum's 1.3863 is visibly larger than
+sum-product's 0.7538 (over-confidence), and ×0.75 pulls it back to 1.0397. The
+"flip 2 bits ✗" preset loads the trapping-set code that oscillates (bridge to
+Part 6). One-line recap below reinforces the three magnitudes.
 -->
 
 ---

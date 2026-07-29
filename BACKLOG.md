@@ -49,7 +49,7 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 | T04 | Part 2 slides — Toolbox: parity, distance, soft bits | slides | M | T01 | ☑ |
 | T05 | `LlrVisualizer` + `HammingPlayground` components | component | L | T01 | ☑ |
 | T06 | Part 3 slides — LDPC theory + 5G NR specifics | slides | XL | T01 | ☑ |
-| T07 | `TannerBpSimulator` component (deck centerpiece #1) | component | XL | T01 | ☐ |
+| T07 | `TannerBpSimulator` component (deck centerpiece #1) | component | XL | T01 | ☑ |
 | T08 | Part 4 slides — Turbo theory + LTE specifics + coding wars | slides | L | T01 | ☐ |
 | T09 | `RscEncoderStepper` + `TurboIterationDemo` components | component | L | T01 | ☐ |
 | T10 | Part 5 slides — Polar theory + 5G NR control channels | slides | L | T01 | ☐ |
