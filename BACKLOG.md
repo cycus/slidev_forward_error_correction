@@ -78,3 +78,9 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 - 3GPP spec PDFs were proxy-blocked during research; all TS 38.212/38.214/36.212 statements were triangulated from ≥2 secondary sources + srsRAN production code. T15 re-verifies the critical ones against actual spec copies.
 - Research flagged specific numbers as UNVERIFIED (each task file lists its own); T15 owns the consolidated list.
 - Slidev v52.x: use `comark: true` (not `mdc:`), Node ≥ 20.12; slide components stay mounted — use `onSlideEnter/Leave`, never `onMounted/onUnmounted`.
+
+### Risk notes / for final review (T-review)
+
+- **[2026-07-30 pre-flight]** `CLAUDE.md` showed a whole-file CRLF↔LF diff on checkout (content byte-identical); reverted to LF. Likely a Windows-editor EOL flip that will recur. T16 should add a `.gitattributes` (`* text=auto eol=lf`) to normalize and stop the churn. **Low risk** — content unaffected.
+- **[2026-07-30 pre-flight]** T16 spec (`tasks/T16-polish-build-deploy.md`) tells the README to point data provenance at `.claude/tasks/`, but task specs actually live in top-level `tasks/`; `.claude/` holds only local Cowork settings (now gitignored). T-review/T16 should correct that path in the README instructions. **Low risk** — doc-only.
+- **[2026-07-30 pre-flight]** Repo mount denies `unlink`, so git leaves stale `.git/index.lock` and `.git/objects/*/tmp_obj_*` files after operations (worked around by renaming the lock aside). Harmless to history, but a stale `index.lock` can block a later git run until renamed away. Environment-only; not a deck defect.
