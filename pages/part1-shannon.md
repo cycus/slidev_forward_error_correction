@@ -12,7 +12,7 @@ layout: default
 <!--
 Part 1 — Shannon's Promise. This part sets the yardstick every later part is
 measured against: channel capacity and the Eb/N0 limit. Interactive centerpiece
-is CapacityExplorer (T03) — embedded as a placeholder here until it lands.
+is CapacityExplorer (T03), embedded live in views 1 and 2 below.
 -->
 
 ---
@@ -163,18 +163,12 @@ $C = B\log_2(1+\SNR)$ — feel the log ceiling: +3 dB of SNR buys ≈ +1 bit/s/H
 
 </div>
 
-<SimStub
-  name="CapacityExplorer · view 1"
-  task="T03"
-  note="Sliders for SNR and bandwidth B, a big C readout, and 5G presets (cell edge / mid cell / peak). Drag SNR up 3 dB → C rises one bit/s/Hz, not double — the log ceiling, felt."
-  height="16rem"
-/>
+<CapacityExplorer mode="capacity" />
 
 <!--
 Slide 8. INTERACTIVE — CapacityExplorer view 1 (T03). Sliders for SNR and B,
 big C readout, 5G presets (cell edge / mid cell / peak). The teaching moment:
-drag SNR up 3 dB and watch C rise by a fixed bit/s/Hz, not double. Until T03
-lands, a placeholder stands in.
+drag SNR up 3 dB and watch C rise by a fixed bit/s/Hz, not double.
 -->
 
 ---
@@ -240,6 +234,7 @@ computed from the formula, verified arithmetically in T15.
 ---
 layout: default
 class: px-10
+clicks: 4
 ---
 
 # The plane every code gets plotted on
@@ -249,12 +244,7 @@ Eb/N0 vs spectral efficiency η. The capacity boundary is a wall; the BPSK-input
 and hard-decision curves show what your <em>choices</em> cost you.
 </div>
 
-<SimStub
-  name="CapacityExplorer · view 2"
-  task="T03"
-  note="The Eb/N0-vs-η plane: capacity boundary with a shaded impossible region, the BPSK-input curve (rate-½ ≈ 0.19 dB), and the ≈2 dB hard-decision penalty. Historical markers march toward the wall."
-  height="16rem"
-/>
+<CapacityExplorer mode="ebn0" :clicks-driven="true" />
 
 <SourceFoot :refs="[['Unconstrained &amp; BPSK-input limits: CCSDS 130.1-G-3', ''], ['Rate-½ BPSK-input ≈ 0.19–0.2 dB; hard-decision loss ≈ 2 dB']]" />
 
@@ -262,8 +252,8 @@ and hard-decision curves show what your <em>choices</em> cost you.
 Slide 10. INTERACTIVE — CapacityExplorer view 2 (T03). The Eb/N0-vs-η plane:
 unconstrained capacity boundary (shaded impossible region), BPSK-input
 constraint curve (rate-½ ≈ 0.19 dB), and the ≈2 dB hard-decision penalty as a
-shifted curve. This same plane hosts the historical "march" markers on the next
-two slides. Placeholder until T03.
+shifted curve, plus the click-stepped historical "march" markers (5 clicks).
+This same plane hosts the "march" the next two slides then quantify.
 -->
 
 ---
