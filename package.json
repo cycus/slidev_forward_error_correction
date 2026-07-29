@@ -1,0 +1,23 @@
+{
+  "name": "fec-for-5g-engineers",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@iconify-json/carbon": "^1.2.24",
+    "@iconify-json/mdi": "^1.2.3",
+    "@slidev/cli": "^52.18.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "vue": "^3.5.40"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.62.0"
+  }
+}

@@ -5,7 +5,7 @@
 **Scope decisions (agreed 2026-07-29):** Comprehensive deck (~85 slides, presentable in parts or self-studied) · Full interactive simulators (custom Vue components) · Engineer's math depth (key equations + numeric worked examples, no formal proofs).
 **Style pillars:** every concept gets a concrete example · trivia/anecdote cards throughout (all verified, sourced) · quantified claims only — every dB figure carries a citation · interactivity used where it teaches, not decorates.
 
-Detailed per-item specs (acceptance criteria, requirements, factual basis with sources) live in `.claude/tasks/T##-*.md`. Research digests underpinning the facts are summarized inside each task file.
+Detailed per-item specs (acceptance criteria, requirements, factual basis with sources) live in `tasks/T##-*.md`. Research digests underpinning the facts are summarized inside each task file.
 
 ---
 
