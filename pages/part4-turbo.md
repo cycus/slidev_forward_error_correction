@@ -185,12 +185,7 @@ Divsalar &amp; Pollara's <b>interleaver gain</b>.
 </div>
 
 <div>
-<SimStub
-  name="RscEncoderStepper"
-  task="T09"
-  note="Feed 1,0,0,0,0,… into the recursive register: the parity output never dies — it rings periodically forever. Toggle 'non-recursive' and the same lone 1 produces just one short blip. This is why weight-1 inputs are harmless only with feedback."
-  height="17rem"
-/>
+<RscEncoderStepper mode="recursion" height="17rem" />
 </div>
 
 </div>
@@ -244,12 +239,7 @@ drive the state back to <b>000</b>. Across both encoders that is <b>12 tail bits
 </div>
 
 <div>
-<SimStub
-  name="RscEncoderStepper"
-  task="T09"
-  note="Step 1,1,0,1 through the LTE (13,15)₈ shift register; states 000→100→110→111→111, parity 1,0,0,1; then 3 tail steps flip the input switch to the feedback and return the state to 000."
-  height="18rem"
-/>
+<RscEncoderStepper mode="lte" height="18rem" />
 </div>
 
 </div>
@@ -464,12 +454,7 @@ class: px-10
 <div class="grid grid-cols-3 gap-4 mt-1">
 
 <div class="col-span-2">
-<SimStub
-  name="TurboIterationDemo"
-  task="T09"
-  note="Sklar's 2×2 product code. Data LLRs {1.5, 0.1, 0.2, 0.3} (info-blue), parity {2.5, 2.0, 6.0, 1.0}. Three bits start near-worthless. Horizontal pass rescues d2 (extrinsic ≈ −1.5 pulled through the strong d1); vertical pass fixes d3 and d4. After 2 full iterations every |LLR| ≳ 2.5 (corrected-green). Extrinsic Lₑ is corrected-green, a-priori Lₐ is muted, channel term info-blue — matching slide 8."
-  height="19rem"
-/>
+<TurboIterationDemo height="19rem" />
 </div>
 
 <div class="space-y-3 text-sm">
