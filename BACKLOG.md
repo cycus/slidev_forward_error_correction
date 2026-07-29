@@ -47,8 +47,8 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 | T02 | Part 0 + Part 1 slides — Prologue & Shannon's Promise | slides | L | T01 | ☑ |
 | T03 | `CapacityExplorer` component | component | M | T01 | ☐ |
 | T04 | Part 2 slides — Toolbox: parity, distance, soft bits | slides | M | T01 | ☑ |
-| T05 | `LlrVisualizer` + `HammingPlayground` components | component | L | T01 | ☐ |
-| T06 | Part 3 slides — LDPC theory + 5G NR specifics | slides | XL | T01 | ☐ |
+| T05 | `LlrVisualizer` + `HammingPlayground` components | component | L | T01 | ☑ |
+| T06 | Part 3 slides — LDPC theory + 5G NR specifics | slides | XL | T01 | ☑ |
 | T07 | `TannerBpSimulator` component (deck centerpiece #1) | component | XL | T01 | ☐ |
 | T08 | Part 4 slides — Turbo theory + LTE specifics + coding wars | slides | L | T01 | ☐ |
 | T09 | `RscEncoderStepper` + `TurboIterationDemo` components | component | L | T01 | ☐ |

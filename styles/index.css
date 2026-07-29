@@ -74,3 +74,47 @@ html.dark {
   font-variant-numeric: tabular-nums;
   font-feature-settings: 'tnum' 1;
 }
+
+/*
+ * Part 3 (LDPC) slide helpers — presentational classes shared across the Part 3
+ * slides (H-matrix grid, base-graph table, erasure bit cells). Colours track the
+ * semantic tokens above, so both schemes follow automatically.
+ */
+
+/* Parity-check matrix rendered as a grid; 1-cells (edges) highlighted blue. */
+.hmat { border-collapse: collapse; }
+.hmat th,
+.hmat td {
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  border: 1px solid var(--fec-line);
+  color: var(--fec-muted);
+  font-variant-numeric: tabular-nums;
+}
+.hmat thead th { border: none; color: var(--fec-info); font-weight: 700; }
+.hmat tbody th { border: none; color: var(--fec-parity); font-weight: 700; }
+.hmat td.on { background: var(--fec-info-soft); color: var(--fec-info); font-weight: 700; }
+
+/* BG1/BG2 comparison table. */
+.bg-tbl { width: 100%; border-collapse: collapse; }
+.bg-tbl td,
+.bg-tbl th { padding: 0.35rem 0.6rem; border-bottom: 1px solid var(--fec-line); }
+.bg-tbl td { text-align: center; }
+.bg-tbl thead th { color: var(--fec-info); font-weight: 700; text-align: center; }
+.bg-tbl tbody th { color: var(--fec-muted); font-weight: 600; text-align: left; }
+
+/* Erasure-decoding bit cells: known (blue), erased (dashed gray), resolved (green). */
+.bcell {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.35rem;
+  border: 1.5px solid var(--fec-line);
+  font-family: var(--slidev-code-font-family, monospace);
+  font-weight: 700;
+}
+.bcell.kno { background: var(--fec-info-soft); border-color: var(--fec-info); color: var(--fec-info); }
+.bcell.era { border-style: dashed; border-color: var(--fec-frozen); color: var(--fec-frozen); }
+.bcell.fix { background: var(--fec-corrected-soft); border-color: var(--fec-corrected); color: var(--fec-corrected); }

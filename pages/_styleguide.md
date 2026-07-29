@@ -83,3 +83,27 @@ rate-½ limit @ 0 dB. Flags are passed per part.
 </div>
 
 <SourceFoot :refs="[['Limits: Forney MIT 6.451 Ch.4', ''], ['Flag values illustrative — set per part in T06/T08'], ]" />
+
+---
+layout: default
+class: px-10
+---
+
+# Part 2 widgets — Hamming & LLR
+
+<div class="text-fec-muted text-sm mt-1 mb-2">Standalone render (no click budget). Toggle dark mode with <kbd>d</kbd>. Numerics unit-tested in <code>snippets/</code> (<code>npm test</code>).</div>
+
+<HammingPlayground />
+
+<SourceFoot :refs="[['(7,4) Hamming — Hamming 1950, BSTJ 29(2)', ''], ['Logic + d_min test: snippets/hamming.ts']]" />
+
+---
+layout: default
+class: px-10
+---
+
+# LlrVisualizer — three views
+
+<LlrVisualizer />
+
+<SourceFoot :refs="[['BPSK LLR = 2y/σ²; 16QAM max-log demapping', ''], ['Logic + reference values: snippets/llr.ts']]" />

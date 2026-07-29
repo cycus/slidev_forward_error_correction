@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "slidev --open",
     "build": "slidev build",
-    "export": "slidev export"
+    "export": "slidev export",
+    "test": "node --test \"snippets/*.test.ts\""
   },
   "dependencies": {
     "@iconify-json/carbon": "^1.2.24",

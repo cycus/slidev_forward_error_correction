@@ -28,8 +28,9 @@ export default defineConfig({
     },
   },
   shortcuts: {
-    // Neutral card surface used by content slides.
-    'fec-card': 'rounded-[var(--fec-radius)] border border-fec-line bg-fec-surface-2 p-4 shadow',
+    // Neutral card surface used by content slides. Uses an arbitrary CSS-var value
+    // (not `bg-fec-surface-2`) because UnoCSS reads a trailing digit as a shade.
+    'fec-card': 'rounded-[var(--fec-radius)] border border-fec-line bg-[var(--fec-surface-2)] p-4 shadow',
     // A small semantic chip, e.g. <span class="fec-chip-info">systematic</span>.
     'fec-chip': 'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-sm font-medium',
     'fec-chip-info': 'fec-chip text-fec-info bg-fec-info-soft',

@@ -71,6 +71,7 @@ needed; this is definitional.
 ---
 layout: default
 class: px-10
+clicks: 2
 ---
 
 # Hamming (7,4) — the first real code
@@ -79,12 +80,7 @@ class: px-10
 Four data bits, three parity bits. One error: located and fixed. Two errors: fooled — that's the lesson.
 </div>
 
-<SimStub
-  name="HammingPlayground"
-  task="T05"
-  note="Type 4 data bits → 3 parity bits appear. Flip a channel bit → the syndrome points at it → corrected (green). Flip two → miscorrection: d_min = 3 fools the decoder."
-  height="14rem"
-/>
+<HammingPlayground />
 
 <TriviaCard class="mt-3" title="Hamming's weekend rage">
 Bell Labs, 1949: batch jobs ran unattended over the weekend, and one relay fault
@@ -97,11 +93,13 @@ was the answer. Its descendant (SECDED) still guards the ECC RAM in servers toda
 <SourceFoot :refs="[['Hamming 1950, BSTJ 29(2)', ''], ['(7,4) is a perfect code — standard result']]" />
 
 <!--
-Slide 3. INTERACTIVE — HammingPlayground (T05). Type 4 data bits → 3 parity
-appear; flip a channel bit → syndrome points at it → corrected; flip two →
-miscorrection banner. The two-error failure is the pedagogical payload (motivates
-d_min next slide). Placeholder stands in until T05. Hamming weekend-rage anecdote
-lives here (the code's home), not on the Part 1 timeline.
+Slide 3. INTERACTIVE — HammingPlayground (T05). Click choreography (2 clicks):
+rest = encoded clean codeword; click 1 = single flip (position 5) → syndrome
+points at it → corrected (green); click 2 = second flip (position 2) → syndrome
+aliases to position 7 → miscorrection banner. The two-error failure is the
+pedagogical payload (motivates d_min next slide). Free exploration also works:
+click any data bit to toggle, any received bit to flip. Hamming weekend-rage
+anecdote lives here (the code's home), not on the Part 1 timeline.
 -->
 
 ---
@@ -274,19 +272,17 @@ Drag the received sample across zero → the decision flips exactly at 0. Grow t
 noise → the LLR bar shrinks. Then a QAM tab: not all bits are equally reliable.
 </div>
 
-<SimStub
-  name="LlrVisualizer"
-  task="T05"
-  note="Drag the received sample y → the LLR bar and decision flip exactly at 0; grow σ → confidence collapses. A QAM tab shows soft-demapping reliability differing per bit position."
-  height="14rem"
-/>
+<LlrVisualizer />
 
 <SourceFoot :refs="[['BPSK LLR = 2y/σ²; 16QAM max-log demapping — MathWorks demod docs', '']]" />
 
 <!--
-Slide 7. INTERACTIVE — LlrVisualizer view 1 (T05). Slider = received y, live LLR
-bar, σ slider showing confidence collapse. QAM tab foreshadows why bit positions
-onto QAM carriers get interleaved (Part 3 rate matching). Placeholder until T05.
+Slide 7. INTERACTIVE — LlrVisualizer (T05). Tab 1 (BPSK/AWGN): drag the received
+sample y → LLR bar and decision colour flip exactly at 0; grow σ → the curves
+overlap and |LLR| collapses. Tab 2 (Repetition): slide 8's canonical case, live.
+Tab 3 (16QAM): max-log demapping — outer bits reliable, inner bits weak,
+foreshadowing why bit positions onto QAM carriers get interleaved (Part 3 rate
+matching). Free exploration — no click budget on this slide.
 -->
 
 ---
