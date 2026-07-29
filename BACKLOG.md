@@ -42,11 +42,11 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 
 | ID | Item | Type | Size | Depends on | Status |
 |---|---|---|---|---|---|
-| T00 | Scaffold Slidev project | infra | S | — | ☐ |
-| T01 | Design system + shared components (TriviaCard, SourceFoot, SectionCover, math conventions) | infra | M | T00 | ☐ |
-| T02 | Part 0 + Part 1 slides — Prologue & Shannon's Promise | slides | L | T01 | ☐ |
+| T00 | Scaffold Slidev project | infra | S | — | ☑ |
+| T01 | Design system + shared components (TriviaCard, SourceFoot, SectionCover, math conventions) | infra | M | T00 | ☑ |
+| T02 | Part 0 + Part 1 slides — Prologue & Shannon's Promise | slides | L | T01 | ☑ |
 | T03 | `CapacityExplorer` component | component | M | T01 | ☐ |
-| T04 | Part 2 slides — Toolbox: parity, distance, soft bits | slides | M | T01 | ☐ |
+| T04 | Part 2 slides — Toolbox: parity, distance, soft bits | slides | M | T01 | ☑ |
 | T05 | `LlrVisualizer` + `HammingPlayground` components | component | L | T01 | ☐ |
 | T06 | Part 3 slides — LDPC theory + 5G NR specifics | slides | XL | T01 | ☐ |
 | T07 | `TannerBpSimulator` component (deck centerpiece #1) | component | XL | T01 | ☐ |
