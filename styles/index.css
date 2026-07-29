@@ -1,0 +1,76 @@
+/*
+ * FEC deck — design tokens (T01).
+ * Auto-injected by Slidev (styles/index.css). Single source of truth for the
+ * color semantics defined in styles/CONVENTIONS.md. Components read these via
+ * var(--fec-*) so they render correctly in both color schemes.
+ *
+ * Color semantics (used consistently everywhere):
+ *   info      = systematic / information bits   (blue)
+ *   parity    = parity / redundancy             (amber)
+ *   error     = erroneous / flipped             (red)
+ *   corrected = corrected / converged           (green)
+ *   frozen    = frozen bits (polar)             (gray)
+ *   trivia    = "did you know" accent           (violet — outside the semantic
+ *               palette so trivia cards never read as parity/etc.)
+ */
+
+:root {
+  /* --- semantic palette: light scheme --- */
+  --fec-info: #2563eb;
+  --fec-parity: #b45309;
+  --fec-error: #dc2626;
+  --fec-corrected: #15803d;
+  --fec-frozen: #6b7280;
+  --fec-trivia: #7c3aed;
+
+  /* soft tints for fills/backgrounds (cards, highlights) */
+  --fec-info-soft: #dbeafe;
+  --fec-parity-soft: #fef3c7;
+  --fec-error-soft: #fee2e2;
+  --fec-corrected-soft: #dcfce7;
+  --fec-frozen-soft: #f1f5f9;
+  --fec-trivia-soft: #ede9fe;
+
+  /* neutrals: foreground / muted text / surfaces / lines */
+  --fec-fg: #1e293b;
+  --fec-muted: #64748b;
+  --fec-surface: #ffffff;
+  --fec-surface-2: #f8fafc;
+  --fec-line: #e2e8f0;
+
+  /* scale + shape tokens */
+  --fec-radius: 0.6rem;
+  --fec-shadow: 0 1px 2px rgb(15 23 42 / 6%), 0 4px 16px rgb(15 23 42 / 8%);
+  --fec-gap: 1rem;
+}
+
+html.dark {
+  /* --- semantic palette: dark scheme (lifted for contrast on dark bg) --- */
+  --fec-info: #60a5fa;
+  --fec-parity: #fbbf24;
+  --fec-error: #f87171;
+  --fec-corrected: #4ade80;
+  --fec-frozen: #94a3b8;
+  --fec-trivia: #a78bfa;
+
+  --fec-info-soft: #1e3a8a;
+  --fec-parity-soft: #78350f;
+  --fec-error-soft: #7f1d1d;
+  --fec-corrected-soft: #14532d;
+  --fec-frozen-soft: #334155;
+  --fec-trivia-soft: #4c1d95;
+
+  --fec-fg: #e2e8f0;
+  --fec-muted: #94a3b8;
+  --fec-surface: #0f172a;
+  --fec-surface-2: #1e293b;
+  --fec-line: #334155;
+
+  --fec-shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 4px 16px rgb(0 0 0 / 40%);
+}
+
+/* Monospace figures for aligned numeric tables/gauges. */
+.fec-tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
