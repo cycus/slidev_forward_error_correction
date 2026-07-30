@@ -57,7 +57,7 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 | T12 | Part 6 slides — BLER vs SINR, MCS/CQI, HARQ, link adaptation | slides | L | T01 | ☑ |
 | T13 | `BlerExplorer` + `HarqIrDemo` components (deck centerpiece #2) | component | XL | T01, T12 data | ☑ |
 | T14 | Part 7 slides — Epilogue, comparison matrix, references | slides | M | T02–T13 | ☑ |
-| T15 | Fact-check pass — verify all flagged claims against primary sources | QA | M | T02–T14 | ☐ |
+| T15 | Fact-check pass — verify all flagged claims against primary sources | QA | M | T02–T14 | ☑ |
 | T16 | Polish, presenter notes, build, export, deploy | QA/infra | M | T15 | ☐ |
 
 ### Milestones
@@ -97,3 +97,19 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
   - **"What's next" citations** (web-verified July 2026): 6G continuity → *"Channel Coding Toward 6G"* arXiv:2405.07547; ML decoding → *"Deep Learning for Channel Coding: A Survey"* arXiv:2406.19664; finite-blocklength → PPV 2010 (already in deck). **No specific 3GPP Rel-19/20 channel-coding study-item number is asserted** (couldn't confirm a dedicated coding SI exists; only survey-sourced). T15: if a firm Rel-19/20 coding SI reference surfaces it may be added — do NOT invent one.
   - Part 7 references slide uses **markdown lists inside grid `<div>` columns** (comark, blank-line-delimited, same pattern as Part 6 slide 9). Parser loads clean, but tests can't confirm visual layout — T15/T16 should eyeball in-browser that the references grid, the 7-row comparison matrix, and the 3-flag `DbGauge` do not overflow at 1080px.
 - **[2026-07-30 T14 — for T16 packaging]** Part 7 references slide (slide 5) ends with a **placeholder** repo/hosted-URL card reading "hosted URL / QR pending" — **no URL fabricated**. T16 must supply the real repo URL (and a QR image if wanted; note there is **no QR component** in `components/` yet, so one must be added or the line simplified to a plain URL). Also unchanged from prior batches: T16 must set `hide: true` on the `_styleguide.md` include in `slides.md` (line ~199–201, TODO already in place) to drop the styleguide from the final build, and run the real `npm run build`/`npm run export` on a normal machine. No remaining content stubs anywhere in the deck.
+
+### T15 fact-check ledger (2026-07-30) — for human review
+
+Full item-by-item Resolution log lives in `tasks/T15-fact-check-pass.md`. Summary:
+
+**Rounding convention adopted (deck-wide):** the LDPC lab result is reported as two distinct, both-sourced quantities — **0.0045 dB = Chung's design/ensemble threshold** (Chung 2001, IEEE Comm. Lett. 5(2)); **0.04 dB = the simulated gap at n=10⁷**. Every `DbGauge` *flag* plots the **0.04 dB** gap (uniform in Parts 1/3/4/5/7); the 0.0045 dB threshold appears only in prose/BigNumbers/TriviaCards that explicitly name "Chung's threshold." Parts 1 & 3 already state both on-slide.
+
+**Verified (internal, against `snippets/*.ts` + 59 passing tests):** capacity Eb/N0 limits {−0.82, 5.74, 15.03} dB for η∈{0.5,4,8}, ultimate −1.59 dB, rate-½ 0 dB; all DbGauge flags match their home parts (Turbo 0.7, LDPC 0.04, Polar 2.8 short-block, Voyager 2.3, Galileo 0.8, BPSK-input½ 0.19); "11.9 dB" CQI6→CQI1 = 11.902 and "~29 dB" span = 29.29 (blerData.ts); "11 dB" Shannon gap (=11.19) used uniformly; CapacityExplorer LDPC 0.23 dB = 0.19 + 0.04 composition sound. Author arithmetic (BP messages, HARQ effective rates, RSC trace, RV k0) covered by snippet tests.
+
+**Verified (web, secondary sources):** Chung 2001 "within 0.0045 dB" (Comm. Lett. 5(2), Feb 2001); Berrou ICC'93 turbo "within ~0.5 dB" popular framing; arXiv:2405.07547 (6G coding survey), PPV 2010 finite-blocklength, Arıkan 0807.3917 (polar) all confirmed; arXiv:2406.19664 confirmed as the DL-for-channel-coding survey. Do-not-use phrase grep clean — the only "RV2 self-decodable" hit is Part 6's deliberate debunk of that misconception.
+
+**Corrected (`pages/part7-epilogue.md`):** (1) comparison-matrix "Flag on gauge" LDPC cell `0.0045 dB (lab)` → **`0.04 dB (lab)`** to match the gauge on the next slide; (2) ML-decoding citation title → **"Recent Advances in Deep Learning for Channel Coding: A Survey"** (arXiv:2406.19664, verified); (3) two stale "T15: reconcile" presenter-note TODOs updated to record the resolution.
+
+**Still-unverified (primary spec PDFs proxy-blocked in sandbox — a human must confirm against the actual documents; none are asserted on-slide without a hedge/SourceFoot, and NO spec value or citation was fabricated):** TS 38.212 (RV k0 table, polar sequence/prefix, puncture-shorten rule, CRC/PC-bit rules), TS 38.214 (MCS/CQI rows + BLER targets), TS 36.212 (188 sizes / QPP / k0 formula), TR 36.942 Annex A LTE attenuated-Shannon values, Berrou ICC'93 constituent generators (37,21)₈ (IEEE Xplore paywalled), Mogensen VTC'07 α≈0.75, Tosato–Bisaglia demapper page-level cite.
+
+**Kept as-is (hedges adequate):** "~30 dB dial" takeaway (tilde + SourceFoot "~29–30 dB" disclose rounding); CapacityExplorer Hamming 9.0 dB marker (hedged in-code as illustrative); Part 6 flags (pyAerial MCS9, Sādhanā non-monotonic, Chase +3 dB theoretical, Mogensen α unverified, TR 36.942 lineage) all still hedged on-slide / in `blerData.ts`.

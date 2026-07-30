@@ -79,7 +79,7 @@ Everything from Parts 3–5 in one grid. Same job — protect the bits — three
 </tr>
 <tr class="border-b border-fec-line" v-click>
 <td class="px-3 py-1 text-fec-muted">Flag on gauge</td>
-<td class="px-3 py-1 text-fec-corrected">0.0045 dB (lab)</td>
+<td class="px-3 py-1 text-fec-corrected">0.04 dB (lab)</td>
 <td class="px-3 py-1 text-fec-parity">0.7 dB (1993)</td>
 <td class="px-3 py-1 text-fec-frozen">at capacity (asymptotic)</td>
 </tr>
@@ -99,9 +99,9 @@ rides <span class="text-fec-parity">turbo</span> — three revolutions, one link
 Slide 1. The comparison matrix — click-revealed rows, one attribute at a time
 (Born/boomed -> Structure -> Decoder -> Strengths -> Weakness -> Lives-in -> Flag-on-gauge),
 then the payoff one-liner. Column identity colours match the deck: LDPC info, Turbo parity,
-Polar frozen. NO new claims — each cell restates Parts 3–5. NOTE for T15: the "flag on gauge"
-row cites LDPC's underlying Chung threshold 0.0045 dB, while the running DbGauge (slide 2,
-Parts 1/3) plots LDPC at 0.04 dB — same lab result, two roundings; keep aligned or reconcile.
+Polar frozen. NO new claims — each cell restates Parts 3–5. T15 resolved: the "flag on gauge"
+row shows LDPC at 0.04 dB to match the running DbGauge (slide 2, Parts 1/3/4/5/7 all plot the
+0.04 dB simulated gap); Chung's 0.0045 dB DESIGN threshold stays in prose/BigNumbers/TriviaCard.
 Polar's cell is text ("at capacity, asymptotic"), not a dB, by design (no honest single
 finite-length dB — see the Part 5 gauge comment).
 -->
@@ -166,8 +166,8 @@ identical to its home part so the epilogue cannot drift. Prose carries the three
 narrative (11 dB gap = Part 1 slide 11 = 9.6 − (−1.59) ≈ 11.2, deck rounds to "11 dB";
 0.0045 dB = Chung 2001; α ≈ 0.6–0.75 = Part 6 / TR 38.921). Honest beat: the last dB is
 traded for latency/power/silicon. ONE TriviaCard = the n=10⁷ price of Chung's 0.0045 dB
-(fresh angle, NOT the Shenzhen medal already used in Part 5). T15: LDPC gauge flag 0.04 vs
-matrix 0.0045 — reconcile the two roundings deck-wide.
+(fresh angle, NOT the Shenzhen medal already used in Part 5). T15 resolved: the matrix "flag
+on gauge" cell is now 0.04 dB to match this gauge; 0.0045 dB stays as Chung's DESIGN threshold.
 -->
 
 ---
@@ -195,7 +195,7 @@ under study — continuity, not replacement.
 <div class="font-bold text-fec-corrected mb-1">ML-assisted decoding</div>
 Trainable min-sum weights and code-agnostic transformer decoders chip at the
 error floor and the short-block gap — a live <b>research</b> area, not standardized.
-<div class="text-xs text-fec-muted mt-2">"Deep Learning for Channel Coding: A Survey," arXiv:2406.19664.</div>
+<div class="text-xs text-fec-muted mt-2">"Recent Advances in Deep Learning for Channel Coding: A Survey," arXiv:2406.19664.</div>
 </div>
 
 <div class="fec-card border-l-4 !border-l-fec-frozen text-sm">
