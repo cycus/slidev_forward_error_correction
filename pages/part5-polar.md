@@ -180,9 +180,7 @@ class: px-10
 <div class="grid grid-cols-5 gap-5 mt-1">
 
 <div class="col-span-3">
-<SimStub name="PolarizationExplorer" task="T11"
-  note="View 1 — polarization tree on BEC(ε=0.5). Step the recursion: each node splits into W⁻ (up, redder) and W⁺ (down, greener); node label = exact erasure prob Z (fraction + decimal). Side histogram piles Z toward 0 and 1; counter tracks channels with Z<0.1 → capacity 1−ε = 0.5."
-  height="19rem" />
+<PolarizationExplorer mode="tree" height="19rem" />
 </div>
 
 <div class="col-span-2 space-y-2 text-sm">
@@ -315,9 +313,7 @@ multiplies.
 </div>
 
 <div class="col-span-3">
-<SimStub name="PolarizationExplorer" task="T11"
-  note="View 2 — N=8 encoder butterfly, 3 stages. Toggle the 8 u-bits (frozen ones locked at 0, grayed); XOR values propagate live left→right, stage-by-stage under $clicks. XOR-count readout = (N/2)·log₂N = 12 at N=8."
-  height="17rem" />
+<PolarizationExplorer mode="butterfly" height="17rem" />
 </div>
 
 </div>
@@ -363,9 +359,7 @@ block.</b>
 </div>
 
 <div class="col-span-3">
-<SimStub name="PolarizationExplorer" task="T11"
-  note="View 3 — SC decode walk on the N=8 tree. Bits decided left→right down the tree; frozen leaves pre-filled. A deliberately injected LLR flip at u3 cascades — every later bit that depends on it goes red, dramatizing 'one early wrong decision kills the block.'"
-  height="17rem" />
+<PolarizationExplorer mode="sc" height="17rem" />
 </div>
 
 </div>
