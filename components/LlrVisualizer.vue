@@ -266,6 +266,18 @@ onSlideLeave(() => {
         </div>
       </div>
     </div>
+
+    <!-- static PDF fallback: the BPSK/AWGN readout at the default sample -->
+    <template #fallback>
+      <div class="lv lv-fb">
+        <div class="lv-readout">
+          <div>BPSK · AWGN — <b class="fec-tnum">y = {{ fmt(y, 2) }}</b>, <b class="fec-tnum">σ = {{ fmt(sigma, 2) }}</b> (σ² = {{ fmt(sigma2, 2) }})</div>
+          <div>LLR = 2y/σ² = <b class="fec-tnum" :style="{ color: decColor(decideZero) }">{{ fmt(llr, 2) }}</b></div>
+          <div>hard decision: <b :style="{ color: decColor(decideZero) }">bit {{ decideZero ? 0 : 1 }}</b> · confidence <b class="fec-tnum">{{ fmt(Math.abs(llr), 2) }}</b></div>
+        </div>
+        <div class="lv-note">Live deck: drag the received sample and noise σ across the BPSK, repetition, and 16QAM tabs to see LLR = sign (decision) + magnitude (confidence).</div>
+      </div>
+    </template>
   </RenderWhen>
 </template>
 

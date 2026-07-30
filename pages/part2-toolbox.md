@@ -12,7 +12,7 @@ layout: default
 Part 2 — The Toolbox. The conceptual kit every code family reuses: block codes,
 redundancy, distance, and the probabilistic view (LLRs). After this part the
 audience thinks in soft bits. Interactive components HammingPlayground and
-LlrVisualizer (T05) are embedded as placeholders until they land.
+LlrVisualizer are embedded and drive the soft-bit demos.
 -->
 
 ---

@@ -222,8 +222,8 @@ peer-reviewed survey arXiv:2405.07547, NOT to an unverified 3GPP study-item numb
 study HAS begun — e.g. TR 38.901 channel-model work — but I could not confirm a specific
 channel-CODING SI, so none is cited); (2) ML-assisted decoding — survey arXiv:2406.19664;
 (3) finite-blocklength/URLLC — PPV 2010, already in Part 1. The muted caveat states the
-omission explicitly. T15: if a firm Rel-19/20 channel-coding SI reference surfaces it can be
-added; do NOT invent one.
+omission explicitly. If a firm Rel-19/20 channel-coding SI reference surfaces
+later it can be added — do NOT invent one.
 -->
 
 ---

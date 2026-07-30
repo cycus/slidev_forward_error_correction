@@ -467,8 +467,8 @@ Slide 9. The counterintuitive optimum. Prose sets the trade: chasing 1e-3 wastes
 whole MCS); 10% failures are recovered by HARQ (residual ~1e-3–1e-4 after 2 Tx). MathWorks
 proof point: 60% BLER @ −5 dB → ~40% throughput. Then OLLA in KaTeX within the ≤2-click
 budget: reveal 1 = converged BLER = 1/(1+Δup/Δdown); reveal 2 = solve BLER*=0.1 ⇒ Δup=9·Δdown
-(corrected-green). Uses the shared \dB is not needed; plain KaTeX. T15: MathWorks second
-proof point (0.43 @ 7 dB) held in reserve if a re-check wants a second anchor.
+(corrected-green). No \dB macro needed here; plain KaTeX. A MathWorks second
+proof point (0.43 @ 7 dB) is held in reserve as an optional second anchor.
 -->
 
 ---

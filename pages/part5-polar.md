@@ -212,9 +212,10 @@ Slide 4. First interactive (PolarizationExplorer view 1). The
 exact BEC(0.5) Z values are printed beside it as a fec-tnum table: N=2 {0.75,0.25}; N=4
 {15/16,9/16,7/16,1/16}; N=8 {255,225,207,81,175,49,31,1}/256. The reveal is the
 teaching beat — polarization is SLOW: only 3/8 have Z<0.2 at N=8 (u5,u6,u7). The
-good/bad colour polarity (green low-Z / red high-Z) matches slide 3. T15: N=8
-info-set prefix vs the 5G sequence restriction is a DERIVED claim — verify vs
-Table 5.3.1.2-1 (component math stands independent per T11).
+good/bad colour polarity (green low-Z / red high-Z) matches slide 3. Caveat:
+the N=8 info-set prefix vs the 5G sequence restriction is a DERIVED claim (the
+component math stands independent); its tie-in to Table 5.3.1.2-1 is unverified
+against the primary spec PDF.
 -->
 
 ---
@@ -279,8 +280,8 @@ CONVENTIONS. The 8-cell strip shows info {u3,u5,u6,u7} vs frozen {u0,u1,u2,u4}
 (the four lowest-Z from slide 4). Right column's punchline: 5G freezes ONE
 universal length-1024 nested sequence instead of per-SNR construction — the
 bridge from theory to a shipping spec. ONE TriviaCard: Huawei sequence at
-RAN1#90, Aug 2017. T15: confirm the info-set prefix tie-in against Table
-5.3.1.2-1 (flagged derived).
+RAN1#90, Aug 2017. Caveat: the info-set prefix tie-in to Table 5.3.1.2-1 is a
+derived claim, unverified against the primary spec PDF.
 -->
 
 ---
@@ -324,8 +325,8 @@ Slide 6. Encoding as an FFT-in-GF(2). Second interactive
 (PolarizationExplorer view 2). Reference numbers printed alongside:
 G_N = G₂^⊗n; NR drops Arıkan's bit-reversal (folded into rate matching); XOR
 count (N/2)·log₂N = 12 at N=8, 2304 at N=512. corrected-green card = the
-"cheap, no multiplies" payoff. T15: sanity-check the (N/2)log₂N derivation
-(= 2304 at N=512) — flagged in the spec.
+"cheap, no multiplies" payoff. Note: the (N/2)·log₂N XOR count (= 2304 at
+N=512) is author-derived arithmetic.
 -->
 
 ---
@@ -495,8 +496,9 @@ UCI≥12 CRC6/11 N≤1024 with PC bits for 12≤A≤19; tiny UCI → RM/simplex/
 CRITICAL colour of the first reveal (corrected-green card): rate-match direction
 is PUNCTURE when K/E≤7/16, SHORTEN when K/E>7/16 — the SPEC direction. CafeTele
 inverts this; do NOT follow it. Second card: distributed CRC → early termination,
-FAR≈2⁻²¹ at L=8. T15: re-triangulate PBCH E=864, CRC types, and FAR exponent
-(2⁻(24−log₂L)) against Maunder + MathWorks.
+FAR≈2⁻²¹ at L=8. Caveat: PBCH E=864, the CRC types, and the FAR exponent
+(2⁻(24−log₂L)) are triangulated from secondary sources (Maunder + MathWorks),
+unverified against the primary spec PDF.
 -->
 
 ---
@@ -556,8 +558,8 @@ Slide 10. The comparative numbers — ALL HEDGED per spec. Anchor: (128,64) BLER
 read-off). Reveals: PBCH ≈1 dB / ~9× ACS (Maunder); no error floor (URLLC,
 single-source → flagged). Error-red caveat card is the load-bearing honesty:
 this is a SHORT-BLOCK win; LDPC wins by n≈1000–2000 (the setup for slide 11).
-T15: re-read the Sionna curves (±0.1–0.2 dB); the "no floor" and any "20× lower
-terminal power" claims are single-source Atlantis — keep hedged or drop.
+Caveat: the Sionna curves carry ±0.1–0.2 dB; the "no floor" and "20× lower
+terminal power" claims are single-source (Atlantis) and stay hedged on-slide.
 -->
 
 ---
@@ -605,8 +607,8 @@ SC/SCL serial → throughput ceiling vs 20 Gb/s eMBB; and the silicon comparison
 mixed process nodes (90nm vs 14nm — the spec's explicit hedge). Reveal: the Nov
 2016 Reno compromise (RAN1 #87) — LDPC data / polar control (corrected-green =
 resolution). Tone: split decision, not a knockout — mirror of Part 4 slide 13's
-turbo verdict. T15: confirm the #86bis vs #87 attribution for the control
-decision (Southampton Table III).
+turbo verdict. Caveat: the #86bis vs #87 attribution for the control decision
+(Southampton Table III) is secondary-sourced, unverified against RAN1 minutes.
 -->
 
 ---
@@ -649,8 +651,8 @@ DbGauge flag choice: polar plotted at 2.8 dB with the `frozen` colour — polar'
 identity token in this deck (turbo used `parity`). 2.8 dB is the slide-10
 CA-SCL-8 (128,64) BLER 1e-3 SHORT-BLOCK operating point, NOT an asymptotic
 limit; labelled as such. Chosen because there is no single defensible
-"asymptotic" dB for a finite-length flag. T15: re-check this 2.8 dB read-off
-(±0.2 dB, Sionna) and the label wording before final.
+"asymptotic" dB for a finite-length flag. Note: the 2.8 dB value is a Sionna
+read-off (±0.2 dB), labelled as a short-block operating point, not a limit.
 -->
 <DbGauge
   caption="Polar plants its flag on control: provably AT capacity asymptotically; a short-block operating point in practice."

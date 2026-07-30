@@ -249,7 +249,7 @@ drive the state back to <b>000</b>. Across both encoders that is <b>12 tail bits
 <!--
 Slide 5. The primary interactive slide. The reference trace (000→100→110→111→111,
 parity 1,0,0,1) is printed as a fec-tnum table beside the stepper so the
-placeholder still teaches and T09 has a ground-truth to match. Parity column is
+stepper is anchored to a hand-derived ground-truth trace. Parity column is
 parity-amber. The reveal is the termination beat: 12 tail bits, 4/stream, D=K+4 —
 the three numbers an engineer needs. Trace is hand-derived; flag for fact-check.
 -->
@@ -737,8 +737,8 @@ Slide 13. The counter-verdict. Three strikes (serial recursion → ~2.15 Gb/s vs
 20 Gb/s; high-rate floor, hedged to a BLER range; ~4300 vs 600–840 ops, sourced
 to a PRO-turbo paper so it's an honest concession). The coding-wars paragraph is
 explicitly HEDGED ("as reported in the press") and press-cited. Exactly ONE
-TriviaCard: Orange's expired-patent irony (filed 1991, expired 2013). Facts to
-re-verify in T15: the 2.15 Gb/s figure and the ops counts.
+TriviaCard: Orange's expired-patent irony (filed 1991, expired 2013). The
+2.15 Gb/s figure and the ops counts are press/paper-sourced and hedged on-slide.
 -->
 
 ---

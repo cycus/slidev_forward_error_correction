@@ -156,6 +156,36 @@ onSlideLeave(reset)
         <span class="hp-key hp-fix">decoder acted</span>
       </div>
     </div>
+
+    <!-- static PDF fallback: the resting (7,4) codeword for the default message -->
+    <template #fallback>
+      <div class="hp hp-fb">
+        <div class="hp-strips">
+          <div class="hp-posrow">
+            <span class="hp-rowlab" />
+            <span v-for="p in 7" :key="`fp${p}`" class="hp-pos">{{ p }}</span>
+          </div>
+          <div class="hp-row">
+            <span class="hp-rowlab">Sent</span>
+            <div
+              v-for="(b, i) in transmitted" :key="`ft${i}`"
+              class="hp-cell" :class="ROLE[i] === 'data' ? 'hp-data' : 'hp-parity'"
+            >
+              <span class="hp-bit">{{ b }}</span>
+              <span class="hp-sub">{{ DATA_LABEL[i] || PARITY_LABEL[i] }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="hp-verdict is-clean">
+          (7,4) Hamming codeword for message <b class="fec-tnum">{{ data.join('') }}</b>. In the
+          live deck: toggle data bits, flip received bits, and watch the syndrome locate the error.
+        </div>
+        <div class="hp-legend">
+          <span class="hp-key hp-data">data</span>
+          <span class="hp-key hp-parity">parity</span>
+        </div>
+      </div>
+    </template>
   </RenderWhen>
 </template>
 

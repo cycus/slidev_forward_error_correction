@@ -19,7 +19,7 @@ graphs → message passing (the centerpiece simulator) → the decoding math →
 schedules → structured encoding → the 5G NR specifics an L1/L2 engineer can map
 onto their stack (base graphs, lifting, puncturing, TB→codeword, rate matching)
 → performance → why LDPC won the 2016 data-channel decision. TannerBpSimulator
-(T07) embeds on slides 6 and 8 as placeholders until it lands.
+embeds on slides 6 and 8.
 -->
 
 ---
@@ -282,7 +282,7 @@ The centerpiece. Sum-product on the (6,3) graph with real LLRs: one flipped bit,
 Slide 6. INTERACTIVE — TannerBpSimulator guided run (T07, centerpiece #1). Exact
 numbers for the presenter: BSC p=0.2 ⇒ channel LLR = ln((1−p)/p) = ±1.386; CN→VN
 extrinsic ±0.7538; bit 1 posterior → +0.1213 after one iteration; parity check
-passes → early stop. Placeholder until T07 lands.
+passes → early stop.
 -->
 
 ---
