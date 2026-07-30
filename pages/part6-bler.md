@@ -221,8 +221,7 @@ class: px-10
 <div class="grid grid-cols-5 gap-5 mt-1">
 
 <div class="col-span-3">
-<SimStub name="BlerExplorer" task="T13" height="17rem"
-  note="Layer LTE CQI staircase, pyAerial NR curve, Sionna block-length family and URLLC anchors; 10% / 1e-5 target line; A/B redundancy-delta arrow; block-length shift animation." />
+<BlerExplorer guided height="17rem" />
 </div>
 
 <div class="col-span-2 space-y-2 text-sm">
@@ -373,8 +372,7 @@ class: px-10
 <div class="grid grid-cols-5 gap-5 mt-1">
 
 <div class="col-span-3">
-<SimStub name="HarqIrDemo" task="T13" height="17rem"
-  note="Circular-buffer ring: systematic + parity arcs, RV pointers at the k0 fractions; each click transmits E bits from the next RV, opacity stacks = LLR combining, effective-rate + self-decodable readouts update. Chase-mode and BG2 toggles." />
+<HarqIrDemo guided height="17rem" />
 </div>
 
 <div class="col-span-2 space-y-2 text-sm">
