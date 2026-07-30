@@ -54,7 +54,7 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 | T09 | `RscEncoderStepper` + `TurboIterationDemo` components | component | L | T01 | ☑ |
 | T10 | Part 5 slides — Polar theory + 5G NR control channels | slides | L | T01 | ☑ |
 | T11 | `PolarizationExplorer` component | component | L | T01 | ☑ |
-| T12 | Part 6 slides — BLER vs SINR, MCS/CQI, HARQ, link adaptation | slides | L | T01 | ☐ |
+| T12 | Part 6 slides — BLER vs SINR, MCS/CQI, HARQ, link adaptation | slides | L | T01 | ☑ |
 | T13 | `BlerExplorer` + `HarqIrDemo` components (deck centerpiece #2) | component | XL | T01, T12 data | ☐ |
 | T14 | Part 7 slides — Epilogue, comparison matrix, references | slides | M | T02–T13 | ☐ |
 | T15 | Fact-check pass — verify all flagged claims against primary sources | QA | M | T02–T14 | ☐ |
