@@ -196,7 +196,6 @@ src: ./pages/part7-epilogue.md
 ---
 
 ---
-# TODO(T16): set `hide: true` to drop the styleguide from the final deck.
 src: ./pages/_styleguide.md
-hide: false
+hide: true
 ---

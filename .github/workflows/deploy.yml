@@ -1,0 +1,98 @@
+# Build the Slidev deck as a static SPA and publish it to GitHub Pages.
+# Local `slidev build`/`export` stall in the authoring sandbox, so the real
+# build/export/deploy happens here on GitHub-hosted runners.
+name: Deploy slides to GitHub Pages
+
+on:
+  # Publish on every push to main. One-time manual setup is required first:
+  # repo Settings -> Pages -> Source = "GitHub Actions" (see DEPLOY.md).
+  push:
+    branches: [main]
+  # Allow manual re-runs from the Actions tab.
+  workflow_dispatch:
+
+# Least-privilege token: read the repo, write Pages, mint the OIDC id-token
+# that actions/deploy-pages@v4 needs to authenticate to the Pages service.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Serialize Pages deploys. cancel-in-progress: false so a running deploy
+# finishes and later pushes queue behind it (never abort a live publish).
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the deck source.
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Node 20 with npm cache keyed off package-lock.json for fast installs.
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Reproducible install from the lockfile.
+      - name: Install dependencies
+        run: npm ci
+
+      # Build the static SPA. --base must match the project Pages path so all
+      # asset URLs resolve under /slidev_forward_error_correction/; --out dist
+      # is what we upload below. Flags verified against @slidev/cli v52.18.0.
+      # A build failure fails the job (this is the critical deliverable).
+      - name: Build SPA
+        run: npm run build -- --base /slidev_forward_error_correction/ --out dist
+
+      # Prepare the Pages deployment context (used by deploy-pages).
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # Package dist/ as the Pages artifact for the deploy job.
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      # PDF export is a nice-to-have, not required for the site to go live.
+      # Chromium (via Playwright) can be flaky on CI, so both the browser
+      # install and the export are continue-on-error: a failed/skipped export
+      # must NOT block the Pages deploy. --output verified against CLI v52.18.0.
+      - name: Install Chromium for export
+        continue-on-error: true
+        run: npx playwright install --with-deps chromium
+
+      - name: Export PDF
+        continue-on-error: true
+        run: npm run export -- --output slides-export.pdf
+
+      # Publish the PDF as a downloadable workflow artifact. if: always() so it
+      # runs even when export failed/was skipped; if-no-files-found: warn keeps
+      # the job green when there is no PDF to upload.
+      - name: Upload PDF artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: slides-export-pdf
+          path: slides-export.pdf
+          if-no-files-found: warn
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # The github-pages environment exposes the published page_url and gates
+    # deploys through Pages' environment protections.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Publish the uploaded artifact to GitHub Pages.
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

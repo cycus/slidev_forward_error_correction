@@ -21,7 +21,7 @@ sequence → encoding as an FFT-like butterfly → SC decoding and its fragility
 SCL+CRC the fix → the 5G NR deployment table → polar-vs-LDPC at short blocks →
 why polar didn't get data → recap + plant polar's flag. Frame: this is the only
 code family born WITH a capacity proof — and it runs every 5G control message.
-Three SimStub placeholders (PolarizationExplorer views 1/2/3) land in T11.
+Three interactive views (PolarizationExplorer views 1/2/3) are embedded.
 -->
 
 ---
@@ -208,9 +208,8 @@ Polarization is <b>slow</b>. At <b>N=8</b> only <b>3 of 8</b> channels have
 <SourceFoot :refs="[['BEC recursion Z⁺=Z², Z⁻=2Z−Z² and all N=2/4/8 values: E. Arıkan, IEEE Trans. IT 55(7), 2009, Prop. 5 (computed exactly)', '']]" />
 
 <!--
-Slide 4. First interactive (SimStub → PolarizationExplorer view 1, T11). The
-exact BEC(0.5) Z values are printed beside the stub as a fec-tnum table so the
-placeholder still teaches and T11 has ground truth: N=2 {0.75,0.25}; N=4
+Slide 4. First interactive (PolarizationExplorer view 1). The
+exact BEC(0.5) Z values are printed beside it as a fec-tnum table: N=2 {0.75,0.25}; N=4
 {15/16,9/16,7/16,1/16}; N=8 {255,225,207,81,175,49,31,1}/256. The reveal is the
 teaching beat — polarization is SLOW: only 3/8 have Z<0.2 at N=8 (u5,u6,u7). The
 good/bad colour polarity (green low-Z / red high-Z) matches slide 3. T15: N=8
@@ -321,8 +320,8 @@ multiplies.
 <SourceFoot :refs="[['x = u·G_N, G_N = G₂^⊗n, NR drops bit-reversal: 3GPP TS 38.212 §5.3.1; ShareTechnote', ''], ['Butterfly / (N/2)·log₂N XOR count: standard G₂^⊗n factor graph', '']]" />
 
 <!--
-Slide 6. Encoding as an FFT-in-GF(2). Second interactive (SimStub →
-PolarizationExplorer view 2, T11). Reference numbers printed so the stub teaches:
+Slide 6. Encoding as an FFT-in-GF(2). Second interactive
+(PolarizationExplorer view 2). Reference numbers printed alongside:
 G_N = G₂^⊗n; NR drops Arıkan's bit-reversal (folded into rate matching); XOR
 count (N/2)·log₂N = 12 at N=8, 2304 at N=512. corrected-green card = the
 "cheap, no multiplies" payoff. T15: sanity-check the (N/2)log₂N derivation
@@ -367,12 +366,12 @@ block.</b>
 <SourceFoot :refs="[['SC decoding, capacity-achieving as N→∞, O(N log N): E. Arıkan, IEEE Trans. IT 55(7), 2009', '']]" />
 
 <!--
-Slide 7. The decoder and its Achilles heel. Third interactive (SimStub →
-PolarizationExplorer view 3, T11). Two reveals: SC is capacity-achieving
+Slide 7. The decoder and its Achilles heel. Third interactive
+(PolarizationExplorer view 3). Two reveals: SC is capacity-achieving
 asymptotically (the theorem), THEN the finite-N fragility (error-red card) — one
 early wrong decision propagates because SC never revisits. This sets up slide 8's
-fix (SCL keeps alternatives so an early mistake isn't fatal). The stub note fully
-specifies the u3-flip cascade so it teaches and T11 has the target behaviour.
+fix (SCL keeps alternatives so an early mistake isn't fatal). The note fully
+specifies the u3-flip cascade the interactive walks through.
 -->
 
 ---

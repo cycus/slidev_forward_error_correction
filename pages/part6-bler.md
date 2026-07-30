@@ -20,9 +20,9 @@ metrics under different redundancies. Arc: the rate dial (MCS tables) → CQI = 
 vote → the anatomy of a waterfall → BlerExplorer (interactive #1) → redundancy⇄SINR
 headline (11.9 dB) → HARQ as redundancy-over-time → HarqIrDemo (interactive #2) →
 why 10% BLER is optimal (OLLA) → URLLC's other regime → how close to Shannon (α-curve)
-→ the full link-adaptation loop → recap + gauge. Two SimStubs (BlerExplorer,
-HarqIrDemo) land in T13; their ground-truth data lives in snippets/blerData.ts +
-snippets/harq.ts and is printed on-slide so the placeholders still teach.
+→ the full link-adaptation loop → recap + gauge. Two interactives (BlerExplorer,
+HarqIrDemo) are embedded; their ground-truth data lives in snippets/blerData.ts +
+snippets/harq.ts and is printed on-slide alongside them.
 -->
 
 ---
@@ -250,8 +250,8 @@ tax shrinking as n grows (Sionna; anchors idealized, dashed in the plot).
 <SourceFoot :refs="[['LTE CQI thresholds: IOSR-JECE (turbo); NR curves: NVIDIA pyAerial + Sionna LDPC tutorials', ''], ['All datapoints source-annotated in snippets/blerData.ts', '']]" />
 
 <!--
-Slide 5. Interactive #1 (SimStub → BlerExplorer, T13). Reference data printed beside the
-stub so the placeholder teaches and T13 has on-slide ground truth: LTE CQI span −9.5…+19.8
+Slide 5. Interactive #1 (BlerExplorer). Reference data printed beside it as
+on-slide ground truth: LTE CQI span −9.5…+19.8
 dB (≈29 dB), pyAerial MCS9 waterfall, Sionna block-length 1e-3 crossings 3.5→1.25 dB — all
 from snippets/blerData.ts. LTE-vs-NR provenance explicit in the table + SourceFoot. Reveal:
 the block-length leftward shift (~2+ dB), corrected-green, tagged as idealized/dashed anchors.
@@ -402,7 +402,7 @@ lifting size Z<sub>c</sub>: k₀ = ⌊x·N<sub>cb</sub>/(66·Z<sub>c</sub>)⌋·
 <SourceFoot :refs="[['RV k0 fractions {0,17/66,33/66,56/66} (BG1) / {0,13,25,43}/50 (BG2): 3GPP TS 38.212 §5.4.2.1, srsRAN', ''], ['Effective-rate sequence 0.80/0.40/0.27/0.20: computed in snippets/harq.ts', '']]" />
 
 <!--
-Slide 8. Interactive #2 (SimStub → HarqIrDemo, T13). Reference data printed beside the stub:
+Slide 8. Interactive #2 (HarqIrDemo). Reference data printed beside it:
 the canonical K=1000/BG1/E=1250 scenario with cumulative bits 1250/2500/3750/5000 and
 effective rates 0.80/0.40/0.27/0.20 (canonicalEffectiveRates() in snippets/harq.ts, 0.27 =
 round(1000/3750,2)); RV k0 fractions {0,17/66,33/66,56/66}·Ncb (BG1) and {0,13,25,43}/50

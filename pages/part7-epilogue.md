@@ -19,7 +19,7 @@ Part 7 opener. The deck lands: consolidate LDPC / Turbo / Polar into one matrix 
 engineer remembers, close the Shannon arc on the running DbGauge (all three family flags
 at last), curate an honest "what's next", five takeaways, and the reference shelf. No new
 facts — everything here traces to Parts 1–6. Arc: matrix -> gauge finale -> what's next
-(cited only) -> takeaways -> references + repo link (hosted URL pending, T16).
+(cited only) -> takeaways -> references + repo link (live GitHub Pages URL).
 -->
 
 ---
@@ -321,8 +321,9 @@ The citations behind the deck, consolidated. Full per-claim sources sit in each 
 </div>
 
 <div v-click class="fec-card border-l-4 !border-l-fec-info text-sm mt-3">
-<b>Slides, snippets &amp; interactive demos:</b> project repository —
-<b class="text-fec-muted">hosted URL / QR pending</b> (added in final packaging).
+<b>Slides, snippets &amp; interactive demos:</b> live at
+<a href="https://cycus.github.io/slidev_forward_error_correction/" class="text-fec-info">cycus.github.io/slidev_forward_error_correction</a>
+— source: <a href="https://github.com/cycus/slidev_forward_error_correction" class="text-fec-info">github.com/cycus/slidev_forward_error_correction</a>
 </div>
 
 <SourceFoot :refs="[['Every citation above appears in-context on the relevant slide across Parts 1–6', '']]" />
@@ -332,8 +333,9 @@ Slide 5. The reference shelf, grouped primary papers · specs · deep-dives — 
 core from the T14 spec (not the full inventory, to fit 16:9 / canvasWidth 1080). Working URLs
 kept where the deck already had them (Shannon, Arıkan, PPV, Costello–Forney, Forney OCW);
 citations without a deck URL are listed link-free — NO URLs fabricated (Sionna, Sklar,
-Johnson, Maunder, TS/CCSDS specs). Repo/QR line is a PLACEHOLDER: there is no hosted URL yet.
-T16 must supply the real repo URL (and a QR if wanted) — do NOT ship with "pending" text.
+Johnson, Maunder, TS/CCSDS specs). Repo line now carries the real live URLs: the deck is
+hosted at cycus.github.io/slidev_forward_error_correction with source on GitHub (plain links,
+no QR component in the deck).
 Markdown lists render inside the grid columns (blank lines around them), same pattern as
 Part 6 slide 9.
 -->

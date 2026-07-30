@@ -19,8 +19,8 @@ architecture (parallel RSC + interleaver) → why recursion is the whole trick �
 the LTE encoder an engineer actually ships → the gossip-loop decoder and the
 precise meaning of "extrinsic" → BCJR / Log-MAP practicalities → EXIT-chart
 intuition → why 5G still dropped turbo → its enormous living legacy. Two
-interactive components (RscEncoderStepper, TurboIterationDemo) land in T09; here
-they are SimStub placeholders. Frame: this is the code in every 4G phone.
+interactive components (RscEncoderStepper, TurboIterationDemo) are embedded here.
+Frame: this is the code in every 4G phone.
 -->
 
 ---
@@ -196,8 +196,8 @@ Divsalar &amp; Pollara's <b>interleaver gain</b>.
 Slide 4. The single most important idea in Part 4: recursion, not concatenation,
 is what buys the coding gain. Argument in two reveals — IIR rings forever, so
 only weight-2+ terminates → the doubly-bad coincidence is ~1/N (interleaver
-gain). The SimStub previews the "feed a lone 1, watch parity never die" demo that
-T09 will make live. Corrected-green card = the payoff line.
+gain). The interactive runs the "feed a lone 1, watch parity never die" demo.
+Corrected-green card = the payoff line.
 -->
 
 ---
@@ -481,8 +481,8 @@ Now scale this 4-bit game to <b>6144 bits × 8 iterations</b> through a QPP inte
 <SourceFoot :refs="[['Worked 2×2 example: Sklar, \'Fundamentals of Turbo Codes\'', ''], ['Product-code turbo: Pyndiah, IEEE Trans. Commun. 46(8), 1998', '']]" />
 
 <!--
-Slide 9. Second interactive slide (SimStub → TurboIterationDemo in T09). The
-note fully specifies the demo so the placeholder teaches: Sklar's numbers, which
+Slide 9. Second interactive slide (TurboIterationDemo). The
+note fully specifies the demo: Sklar's numbers, which
 bits get rescued when, and the colour contract (Lₑ green / Lₐ muted / channel
 blue) that ties back to slide 8. The two cards narrate before-and-after; the
 final reveal is the punchline caption scaling the toy up to a real LTE block.

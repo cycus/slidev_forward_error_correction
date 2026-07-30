@@ -58,14 +58,14 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 | T13 | `BlerExplorer` + `HarqIrDemo` components (deck centerpiece #2) | component | XL | T01, T12 data | ☑ |
 | T14 | Part 7 slides — Epilogue, comparison matrix, references | slides | M | T02–T13 | ☑ |
 | T15 | Fact-check pass — verify all flagged claims against primary sources | QA | M | T02–T14 | ☑ |
-| T16 | Polish, presenter notes, build, export, deploy | QA/infra | M | T15 | ☐ |
+| T16 | Polish, presenter notes, build, export, deploy | QA/infra | M | T15 | ☑ |
 
 ### Milestones
 
 1. **M1 — Walking skeleton** (T00–T03): project builds, theme set, Part 1 presentable with the capacity explorer. Proves the component pipeline end-to-end.
 2. **M2 — Codes core** (T04–T11): all three code families presentable with their simulators.
 3. **M3 — The payoff** (T12–T14): quantified redundancy story + epilogue; deck is content-complete.
-4. **M4 — Ship** (T15–T16): fact-checked, polished, exported, deployed.
+4. **M4 — Ship** (T15–T16): fact-checked, polished, exported, deployed. ☑ **All items T00–T16 complete (2026-07-30).** Deck is content-complete + fact-checked; final **audience slide count = 87** (styleguide dropped via `hide: true`). Build/export/Pages deploy delegated to `.github/workflows/deploy.yml` (local build impossible in sandbox). Human must: (1) push local commits (`git push origin main` — no sandbox credentials), (2) GitHub Settings → Pages → Source = "GitHub Actions" + allow Actions. See `DEPLOY.md`. Live URL: https://cycus.github.io/slidev_forward_error_correction/
 
 ### Definition of Done
 

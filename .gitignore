@@ -9,3 +9,8 @@ slides-export.pdf
 
 # Local Claude/Cowork settings (tooling noise, not a deck artifact)
 .claude/
+
+# Local verification helpers (untracked, sandbox mount can't delete them)
+.parse-check.mjs
+.sfc-check.mjs
+.parse-check.tmphide.mjs.stale
