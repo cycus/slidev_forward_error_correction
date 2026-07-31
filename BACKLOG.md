@@ -9,18 +9,18 @@ Detailed per-item specs (acceptance criteria, requirements, factual basis with s
 
 ---
 
-## Deck structure (target ~85 slides)
+## Deck structure (target ~85 slides · shipped 87)
 
 | Part | Title | Slides | Core message | Interactive centerpiece |
 |---|---|---|---|---|
 | 0 | Prologue — Every bit is a guess | 4 | Noise is physics; FEC is why radio works | — |
-| 1 | Shannon's Promise (1948) | 11 | Capacity is a provable limit; the 60-year march closed an 11 dB gap | `CapacityExplorer` |
+| 1 | Shannon's Promise (1948) | 12 | Capacity is a provable limit; the 60-year march closed an 11 dB gap | `CapacityExplorer` |
 | 2 | The Toolbox — parity, distance, soft bits | 9 | Decoding is probabilistic inference; soft beats hard by ~2 dB | `LlrVisualizer`, `HammingPlayground` |
 | 3 | LDPC — the workhorse of 5G data | 17 | Sparse graphs + message passing; QC structure = Gbps decoding | `TannerBpSimulator` |
 | 4 | Turbo — the 1993 revolution | 14 | Two gossiping decoders exchanging extrinsic beliefs | `RscEncoderStepper`, `TurboIterationDemo` |
 | 5 | Polar — the theorist's triumph | 12 | Channel polarization; provably capacity-achieving; owns 5G control | `PolarizationExplorer` |
 | 6 | Redundancy, Quantified — BLER vs SINR | 13 | Code rate is a dial: ~29 dB of SINR span; HARQ makes 10% BLER optimal | `BlerExplorer`, `HarqIrDemo` |
-| 7 | Epilogue — three codes, one phone | 5 | LDPC/Turbo/Polar compared; how close to Shannon we actually fly | comparison matrix |
+| 7 | Epilogue — three codes, one phone | 6 | LDPC/Turbo/Polar compared; how close to Shannon we actually fly | comparison matrix |
 
 ## Interactive component inventory
 
@@ -59,6 +59,9 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 | T14 | Part 7 slides — Epilogue, comparison matrix, references | slides | M | T02–T13 | ☑ |
 | T15 | Fact-check pass — verify all flagged claims against primary sources | QA | M | T02–T14 | ☑ |
 | T16 | Polish, presenter notes, build, export, deploy | QA/infra | M | T15 | ☑ |
+| T17 | Fix raw (unrendered) KaTeX inside HTML blocks — 7 spots, Parts 4–5 | QA | S | — | ☐ |
+| T18 | Restore guided click choreography on Part 6 slides 5 & 8 (`clicks: 4`) | QA | S | — | ☐ |
+| T19 | Visual polish — overflow clips, recap-gauge legibility, marker declutter | QA | S | T17 | ☐ |
 
 ### Milestones
 
@@ -66,6 +69,7 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
 2. **M2 — Codes core** (T04–T11): all three code families presentable with their simulators.
 3. **M3 — The payoff** (T12–T14): quantified redundancy story + epilogue; deck is content-complete.
 4. **M4 — Ship** (T15–T16): fact-checked, polished, exported, deployed. ☑ **All items T00–T16 complete (2026-07-30).** Deck is content-complete + fact-checked; final **audience slide count = 87** (styleguide dropped via `hide: true`). Build/export/Pages deploy delegated to `.github/workflows/deploy.yml` (local build impossible in sandbox). Human must: (1) push local commits (`git push origin main` — no sandbox credentials), (2) GitHub Settings → Pages → Source = "GitHub Actions" + allow Actions. See `DEPLOY.md`. Live URL: https://cycus.github.io/slidev_forward_error_correction/
+5. **M5 — Post-ship QA** (T17–T19): fixes from the 2026-07-31 flow/structure/presentation review (see the review note below).
 
 ### Definition of Done
 
@@ -97,6 +101,16 @@ Order = recommended implementation order. Sizes: S ≈ ≤2h, M ≈ half-day, L 
   - **"What's next" citations** (web-verified July 2026): 6G continuity → *"Channel Coding Toward 6G"* arXiv:2405.07547; ML decoding → *"Deep Learning for Channel Coding: A Survey"* arXiv:2406.19664; finite-blocklength → PPV 2010 (already in deck). **No specific 3GPP Rel-19/20 channel-coding study-item number is asserted** (couldn't confirm a dedicated coding SI exists; only survey-sourced). T15: if a firm Rel-19/20 coding SI reference surfaces it may be added — do NOT invent one.
   - Part 7 references slide uses **markdown lists inside grid `<div>` columns** (comark, blank-line-delimited, same pattern as Part 6 slide 9). Parser loads clean, but tests can't confirm visual layout — T15/T16 should eyeball in-browser that the references grid, the 7-row comparison matrix, and the 3-flag `DbGauge` do not overflow at 1080px.
 - **[2026-07-30 T14 — for T16 packaging]** Part 7 references slide (slide 5) ends with a **placeholder** repo/hosted-URL card reading "hosted URL / QR pending" — **no URL fabricated**. T16 must supply the real repo URL (and a QR image if wanted; note there is **no QR component** in `components/` yet, so one must be added or the line simplified to a plain URL). Also unchanged from prior batches: T16 must set `hide: true` on the `_styleguide.md` include in `slides.md` (line ~199–201, TODO already in place) to drop the styleguide from the final build, and run the real `npm run build`/`npm run export` on a normal machine. No remaining content stubs anywhere in the deck.
+
+### Flow/structure/presentation review (2026-07-31) — T17–T19 sourced here
+
+Full deck re-read (all 8 source files) **plus rendered-output inspection**: local `npm run export` now works on the dev machine (87 pages; the sandbox-era "cannot export locally" notes no longer apply) — pages rasterized via pdftoppm and the dense/risky ones eyeballed. Verdict on the things that work: the narrative arc (gap → toolbox → three families → quantified payoff → epilogue) is sound; SectionCover progress dots, per-part recap-with-flag rhythm, and the callback web (LLR polarity, QAM bit reliability → rate matching, PPV → URLLC, extrinsic-only → BP exclusion, professor/student) all land; the thrice-told 2016 coding-wars story is per-part framing and reads as intended given parts are presentable standalone. New defects found (none previously tracked):
+
+- **T17 — raw KaTeX (7 spots, Parts 4–5):** math inside HTML blocks without blank-line delimiters prints literally (`$$ \Rcode = … $$` on Part 4 s3, the L_c/L_a/L_e legend on s8, `$(1,1)$` on s12; `$I(W⁻)+I(W⁺)$` P5 s3, `$N\to\infty$` s7, `$O(L\,N\log N)$` s8, `$\EbNo$` s10). The known comark gotcha; DoD "KaTeX renders" violated.
+- **T18 — Part 6 guided walks unreachable:** slides 5/8 embed `BlerExplorer`/`HarqIrDemo` guided (4 `$clicks` steps) but declare no `clicks:` frontmatter — the lone prose v-click makes Slidev's click total 1, so steps 2–4 never play. **Corrects the earlier T13 note calling the shared stream "functionally fine."** (Part 1 s10 / Part 3 s6 show the correct `clicks: 4` pattern.) Also: guided BlerExplorer never draws the Sionna block-length layer the slide-5 card says is "dashed in the plot."
+- **T19 — layout polish:** P4 s5 termination paragraph clips into the footer (payoff text cut mid-sentence); P2 s3 + P5 s12 TriviaCards touch/overlap the SourceFoot; P4 s14 + P5 s12 render the recap DbGauge half-width with illegible labels (Parts 1/3/7 are full-width — motif inconsistency); P7 s3 says "every flag this deck has planted" but plots only the 3 family flags; CapacityExplorer view-2 march-marker year labels collide (1993/2001 → "20093" blob). Optional: P3 s13 mermaid small + bottom 40% empty; SourceFoot ellipsis swallows 2nd refs on P5 s9 / P6 s11 / P7 s3.
+- Doc drift fixed inline: structure table said Part 1 = 11 / Part 7 = 5 slides; actuals are 12 / 6 (total 87, matching the parser count minus the hidden styleguide).
+- Not actioned (deliberate): presenter-note slide numbering mixes global (Parts 1–2) and per-file (Parts 3–7) schemes — cosmetic, notes-only; `year="1948"` vs `:year="2008"` SectionCover binding styles — renders identically.
 
 ### T15 fact-check ledger (2026-07-30) — for human review
 
